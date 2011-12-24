@@ -1,0 +1,48 @@
+# rbenv support
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export CLICOLOR=1
+
+# Allow for functions in the prompt.
+ setopt PROMPT_SUBST
+
+export PATH=/usr/local/bin:$PATH
+
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/Development
+
+# use vim as an editor
+export EDITOR=vim
+
+# keep TONS of history
+export HISTSIZE=4096
+
+# source every .zsh file in this rep
+for config_file ($ZSH/**/*.zsh) source $config_file
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# Initialize colors.
+autoload -U colors
+colors
+
+git_prompt_info() {
+  branch="$(git symbolic-ref HEAD 2>/dev/null)" || return
+  echo "[%{$fg_bold[green]%}${branch#refs/heads/}%{$reset_color%}]"
+}
+
+# prompt
+PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '

@@ -1,0 +1,83 @@
+set nocompatible  " Use Vim settings, rather then Vi settings
+filetype off      " required for Vundle
+
+" vundle setup
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'avakhov/vim-json'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vividchalk'
+
+" end Vundle setup
+
+filetype plugin indent on
+
+set nobackup
+set nowritebackup
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set hlsearch      " hilight search
+set laststatus=2  " Always display the status line
+
+" syntax
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+syntax on
+set background=dark
+colorscheme solarized
+
+set relativenumber  " enable relative line number
+
+" mappings
+let mapleader=','
+
+" make editing and sourcing your vimrc file easier
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>ev :e $MYVIMRC<CR>
+
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+function! CorrectTestRunner()
+  if match(expand('%'), '\.feature$') != -1
+    return "cucumber --drb"
+  elseif match(expand('%'), '_spec\.rb$') != -1
+     return "bundle exec rspec --drb"
+   endif
+endfunction
+
+function! RunTest()
+  exec "!" . CorrectTestRunner()
+endfunction
+
+function! RunCurrentTest()
+  exec "!" . CorrectTestRunner() . " " . expand('%:p')
+endfunction
+
+function! RunCurrentLineInTest()
+  exec "!" . CorrectTestRunner() . " " . expand('%:p') . ":" . line(".")
+endfunction
+
+nnoremap <Leader>rf :call RunTest()<CR>
+nnoremap <Leader>rf :call RunCurrentTest()<CR>
+nnoremap <Leader>rl :call RunCurrentLineInTest()<CR>
