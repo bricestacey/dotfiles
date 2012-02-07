@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'avakhov/vim-json'
+Bundle 'wgibbs/vim-irblack'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-cucumber'
@@ -22,6 +23,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'juvenn/mustache.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " end Vundle setup
 
