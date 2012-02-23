@@ -87,7 +87,7 @@ nnoremap <Leader>rl :call RunCurrentLineInTest()<CR>
 
 
 " Exit insert mode after 5 seconds.
-autocmd CursorHoldI * stopInsert
+autocmd CursorHoldI * stopinsert
 
 " Help File funtimes, <enter> to follow tag, delete for back
 au filetype help nnoremap <buffer><cr> <c-]>
