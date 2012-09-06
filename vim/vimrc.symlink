@@ -24,6 +24,11 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'juvenn/mustache.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'ingydotnet/yaml-vim'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'ddollar/nerdcommenter'
+Bundle 'jasonkuhrt/Tomorrow-Theme'
 
 " end Vundle setup
 
@@ -46,6 +51,7 @@ set expandtab
 syntax on
 set background=dark
 colorscheme solarized
+set colorcolumn=120
 
 set relativenumber  " enable relative line number
 
@@ -65,7 +71,7 @@ function! CorrectTestRunner()
   if match(expand('%'), '\.feature$') != -1
     return "cucumber --drb"
   elseif match(expand('%'), '_spec\.rb$') != -1
-     return "bundle exec rspec --drb"
+     return "bundle exec rspec --drb --colour"
    endif
 endfunction
 
@@ -84,3 +90,19 @@ endfunction
 nnoremap <Leader>rf :call RunTest()<CR>
 nnoremap <Leader>rf :call RunCurrentTest()<CR>
 nnoremap <Leader>rl :call RunCurrentLineInTest()<CR>
+
+
+function HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+endfunction
+
+function HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+" map <silent> <c-h> :call HtmlEscape()<CR>
+" map <silent> <c-u> :call HtmlUnEscape()<CR>

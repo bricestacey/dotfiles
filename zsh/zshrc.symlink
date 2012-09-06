@@ -1,6 +1,11 @@
+export PATH=$PATH:/work/chef/bin
 # rbenv support
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Android compilation
+export PATH=$PATH:/work/android-sdk-maxosx/tools
+export PATH=/work/android-sdk-macosx/all-platform-tools/r8-platform-tools:/work/android-sdk-macosx/all-tools/r13-tools:$PATH
 
 export CLICOLOR=1
 
@@ -20,6 +25,9 @@ export EDITOR=vim
 
 # keep TONS of history
 export HISTSIZE=4096
+
+# add color to grep
+export GREP_OPTIONS="--color=auto"
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
