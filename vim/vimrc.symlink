@@ -91,7 +91,6 @@ nnoremap <Leader>rf :call RunTest()<CR>
 nnoremap <Leader>rf :call RunCurrentTest()<CR>
 nnoremap <Leader>rl :call RunCurrentLineInTest()<CR>
 
-
 function HtmlEscape()
   silent s/&/\&amp;/eg
   silent s/</\&lt;/eg
@@ -106,3 +105,15 @@ endfunction
 
 " map <silent> <c-h> :call HtmlEscape()<CR>
 " map <silent> <c-u> :call HtmlUnEscape()<CR>
+
+" Exit insert mode after 5 seconds.
+autocmd CursorHoldI * stopinsert
+
+" Help File funtimes, <enter> to follow tag, delete for back
+au filetype help nnoremap <buffer><cr> <c-]>
+au filetype help nnoremap <buffer><bs> <c-T>
+au filetype help nnoremap <buffer>q :q<CR>
+au filetype help set nonumber
+set splitbelow " Split windows, ie Help, make more sense to me below
+au filetype help wincmd _ " Maximze the help on open
+" end Help File funtimes
