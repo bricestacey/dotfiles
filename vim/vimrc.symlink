@@ -91,6 +91,10 @@ nnoremap <Leader>rf :call RunTest()<CR>
 nnoremap <Leader>rf :call RunCurrentTest()<CR>
 nnoremap <Leader>rl :call RunCurrentLineInTest()<CR>
 
+" jasmine
+nnoremap <Leader>j :!grunt test_spec --spec=% --forceexit<CR>
+nnoremap <Leader>J :!grunt test_spec --spec=test/ --forceexit<CR>
+
 function HtmlEscape()
   silent s/&/\&amp;/eg
   silent s/</\&lt;/eg
@@ -117,3 +121,6 @@ au filetype help set nonumber
 set splitbelow " Split windows, ie Help, make more sense to me below
 au filetype help wincmd _ " Maximze the help on open
 " end Help File funtimes
+
+" Store swap files in fixed location, not current directory.
+set dir=~/.vimswap//,/var/tmp//,/tmp//,.
