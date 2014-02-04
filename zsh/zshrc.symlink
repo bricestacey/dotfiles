@@ -3,6 +3,9 @@ export PATH=$PATH:/work/chef/bin
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+
 # Android compilation
 export PATH=$PATH:/work/android-sdk-maxosx/tools
 export PATH=/work/android-sdk-macosx/all-platform-tools/r8-platform-tools:/work/android-sdk-macosx/all-tools/r13-tools:$PATH
@@ -59,3 +62,5 @@ PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bo
 [[ $TERM == "screen" ]] && export TERM="screen-256color"
 
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
