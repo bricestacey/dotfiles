@@ -52,11 +52,11 @@ colors
 
 git_prompt_info() {
   branch="$(git symbolic-ref HEAD 2>/dev/null)" || return
-  echo "[%{$fg_bold[green]%}${branch#refs/heads/}%{$reset_color%}]"
+  echo "[%{$fg[green]%}${branch#refs/heads/}%{$reset_color%}]"
 }
 
 # prompt
-PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
+PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg[green]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}] '
 
 # since this doesn't seem to work in my .tmux.conf
 [[ $TERM == "screen" ]] && export TERM="screen-256color"
