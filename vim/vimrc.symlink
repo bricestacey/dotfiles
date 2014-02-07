@@ -25,6 +25,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'pangloss/vim-javascript'
 Bundle 'chriskempson/base16-vim'
 Bundle 'groenewege/vim-less'
+Bundle 'elzr/vim-json'
 
 " end Vundle setup
 
@@ -117,5 +118,10 @@ endfunction
 " Store swap files in fixed location, not current directory.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
+" Bundle 'scrooloose/syntastic'
 " Make syntastic ignore angular properties
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+" Bundle 'elzr/vim-json'
+" Disable json concealing
+let g:vim_json_syntax_conceal = 0
