@@ -24,6 +24,7 @@ Bundle 'ingydotnet/yaml-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'pangloss/vim-javascript'
 Bundle 'chriskempson/base16-vim'
+Bundle 'groenewege/vim-less'
 
 " end Vundle setup
 
