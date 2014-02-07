@@ -117,3 +117,5 @@ endfunction
 " Store swap files in fixed location, not current directory.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
+" Make syntastic ignore angular properties
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
