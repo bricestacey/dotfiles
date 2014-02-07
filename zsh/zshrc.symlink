@@ -3,6 +3,9 @@ export PATH=$PATH:/work/chef/bin
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# 256 Color Support
+export TERM=xterm-256color
+
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
