@@ -52,6 +52,9 @@ set colorcolumn=120
 
 set relativenumber  " enable relative line number
 
+" set filetype to json for .json files
+au BufRead,BufNewFile *.json set filetype=json
+
 " mappings
 let mapleader=','
 
