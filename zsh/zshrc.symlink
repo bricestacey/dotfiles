@@ -9,8 +9,14 @@ fi
 # 256 Color Support
 export TERM=xterm-256color
 
-# Java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+# Set JAVA_HOME to 7, otherwise fallback to 6.
+if /usr/libexec/java_home -v 1.7 &> /dev/null; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+elif /usr/libexec/java_home -v 1.6 &> /dev/null; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
+else
+  echo "WARN: JAVA_HOME not set. Install JDK6 or JDK7";
+fi
 
 # Android compilation
 export PATH=$PATH:/work/android-sdk-maxosx/tools
