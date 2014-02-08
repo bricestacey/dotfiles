@@ -1,3 +1,67 @@
+# Terminal
+# ========
+
+# Colorize the terminal
+export TERM=xterm-256color
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export CLICOLOR=1
+export GREP_OPTIONS="--color=auto"
+
+# Initialize colors.
+autoload -U colors
+colors
+
+# Initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# source every .zsh file in this rep
+for config_file ($HOME/.dotfiles/**/*.zsh) source $config_file
+
+# Homebrew
+# ========
+
+# Load from /usr/local/bin before /bin
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+# Vim
+# ===
+
+export EDITOR=vim
+
+# .localrc
+# ========
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# Prompt
+# ======
+
+# Allow for functions in the prompt.
+setopt PROMPT_SUBST
+
+git_prompt_info() {
+  branch="$(git symbolic-ref HEAD 2>/dev/null)" || return
+  echo "[%{$fg[green]%}${branch#refs/heads/}%{$reset_color%}]"
+}
+
+# Set prompt
+PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg[green]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}] '
+
+# tmux
+# ====
+
+# since this doesn't seem to work in my .tmux.conf
+[[ $TERM == "screen" ]] && export TERM="screen-256color"
+
 # Ruby
 # ====
 
@@ -6,8 +70,15 @@ if (( $+commands[rbenv] )); then
   eval "$(rbenv init -)"
 fi
 
-# 256 Color Support
-export TERM=xterm-256color
+# Node
+# ====
+
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+# Java
+# ====
 
 # Set JAVA_HOME to 7, otherwise fallback to 6.
 if /usr/libexec/java_home -v 1.7 &> /dev/null; then
@@ -18,58 +89,9 @@ else
   echo "WARN: JAVA_HOME not set. Install JDK6 or JDK7";
 fi
 
+# Android
+# =======
+
 # Android compilation
 export PATH=$PATH:/work/android-sdk-maxosx/tools
 export PATH=/work/android-sdk-macosx/all-platform-tools/r8-platform-tools:/work/android-sdk-macosx/all-tools/r13-tools:$PATH
-
-export CLICOLOR=1
-
-# Allow for functions in the prompt.
- setopt PROMPT_SUBST
-
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
-
-# use vim as an editor
-export EDITOR=vim
-
-# keep TONS of history
-export HISTSIZE=4096
-
-# add color to grep
-export GREP_OPTIONS="--color=auto"
-
-# source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) source $config_file
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# Initialize colors.
-autoload -U colors
-colors
-
-git_prompt_info() {
-  branch="$(git symbolic-ref HEAD 2>/dev/null)" || return
-  echo "[%{$fg[green]%}${branch#refs/heads/}%{$reset_color%}]"
-}
-
-# prompt
-PROMPT='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg[green]%}%n@%m:"}%{$fg[cyan]%}%~%{$reset_color%}] '
-
-# since this doesn't seem to work in my .tmux.conf
-[[ $TERM == "screen" ]] && export TERM="screen-256color"
-
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
