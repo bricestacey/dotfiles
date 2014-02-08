@@ -32,9 +32,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Development
-
 # use vim as an editor
 export EDITOR=vim
 
