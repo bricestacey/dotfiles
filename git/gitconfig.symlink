@@ -1,0 +1,6 @@
+[user]
+	name = Brice Stacey
+	email = bricestacey@gmail.com
+
+[core]
+	excludesfile = /Users/brice/.gitignore_global
