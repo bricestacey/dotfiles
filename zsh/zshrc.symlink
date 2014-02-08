@@ -1,7 +1,10 @@
 export PATH=$PATH:/work/chef/bin
 # rbenv support
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+if (( $+commands[rbenv] )); then
+  eval "$(rbenv init -)"
+fi
 
 # 256 Color Support
 export TERM=xterm-256color
