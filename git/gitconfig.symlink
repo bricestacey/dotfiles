@@ -1,6 +1,12 @@
+[core]
+	excludesfile = /Users/brice/.gitignore
+
 [user]
 	name = Brice Stacey
 	email = bricestacey@gmail.com
 
-[core]
-	excludesfile = /Users/brice/.gitignore_global
+[color]
+  ui = true
+
+[merge]
+  conflictstyle = diff3
