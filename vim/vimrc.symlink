@@ -98,7 +98,7 @@ nnoremap <Leader>j :!grunt test_spec --spec=% --forceexit<CR>
 nnoremap <Leader>J :!grunt test_spec --spec=test/ --forceexit<CR>
 
 " notes
-nnoremap <Leader>n :vs ~/notes.md<CR>
+nnoremap <Leader>n :e ~/notes.md<CR>
 
 function! HtmlEscape()
   silent s/&/\&amp;/eg
