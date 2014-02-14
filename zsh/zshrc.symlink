@@ -100,3 +100,11 @@ fi
 # Android compilation
 export PATH=$PATH:/work/android-sdk-maxosx/tools
 export PATH=/work/android-sdk-macosx/all-platform-tools/r8-platform-tools:/work/android-sdk-macosx/all-tools/r13-tools:$PATH
+
+# zsh homebrew caveats
+# ====================
+
+# Add the following to your zshrc to access the online help:
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
