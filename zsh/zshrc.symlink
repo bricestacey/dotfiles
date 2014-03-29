@@ -78,9 +78,11 @@ fi
 # Node
 # ====
 
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+if [ -s $(brew --prefix nvm)/nvm.sh ]; then
+  source $(brew --prefix nvm)/nvm.sh
+fi
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 # Java
 # ====
