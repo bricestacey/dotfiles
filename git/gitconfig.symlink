@@ -1,5 +1,6 @@
 [core]
-	excludesfile = /Users/brice/.gitignore
+  editor = vim
+	excludesfile = ~/.gitignore
 
 [user]
 	name = Brice Stacey
@@ -10,3 +11,7 @@
 
 [merge]
   conflictstyle = diff3
+
+[alias]
+   l = log --graph --decorate --pretty=oneline --abbrev-commit
+   la = log --graph --decorate --pretty=oneline --abbrev-commit --all
