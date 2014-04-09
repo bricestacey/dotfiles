@@ -1,0 +1,2 @@
+-- Set default schemas
+set search_path to consumer,txcore;

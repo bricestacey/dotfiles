@@ -13,5 +13,7 @@
   conflictstyle = diff3
 
 [alias]
+   fap = fetch --all --prune
+   fop = fetch origin --prune
    l = log --graph --decorate --pretty=oneline --abbrev-commit
    la = log --graph --decorate --pretty=oneline --abbrev-commit --all
