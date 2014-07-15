@@ -102,8 +102,7 @@ fi
 # =======
 
 # Android compilation
-export PATH=$PATH:/work/android-sdk-maxosx/tools
-export PATH=/work/android-sdk-macosx/all-platform-tools/r8-platform-tools:/work/android-sdk-macosx/all-tools/r13-tools:$PATH
+export PATH=$PATH:"/Applications/Android Studio.app/sdk/platform-tools"
 
 # zsh homebrew caveats
 # ====================
