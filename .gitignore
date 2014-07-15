@@ -1,2 +1,3 @@
 zsh/keys.zsh
 vim/vim.symlink/bundle**
+*.localrc
