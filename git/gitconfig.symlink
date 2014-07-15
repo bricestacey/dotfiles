@@ -17,3 +17,6 @@
    fop = fetch origin --prune
    l = log --graph --decorate --pretty=oneline --abbrev-commit
    la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+[pull]
+	ff = true
