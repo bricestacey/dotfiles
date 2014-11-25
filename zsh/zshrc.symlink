@@ -102,7 +102,13 @@ fi
 # =======
 
 # Android compilation
-export PATH=$PATH:"/Applications/Android Studio.app/sdk/platform-tools"
+export PATH=$HOME/android-sdk/platform-tools:$PATH
+alias droid-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > screen.png"
+alias droid-screencast="adb shell screenrecord /sdcard/demo.mp4"
+alias droid-screencast-pull="adb pull /sdcard/demo.mp4"
+alias droid-wm-reset="adb shell wm size reset && adb shell wm density reset && adb shell wm overscan reset"
+alias droid-wm-nexus5="adb shell wm size 1920x1080 && adb shell wm density 480"
+alias droid-wm-nexus5-landscape="adb shell wm size 1080x1920 && adb shell wm density 480"
 
 # zsh homebrew caveats
 # ====================
