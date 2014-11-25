@@ -84,7 +84,7 @@ fi
 
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
-alias node='env NODE_NO_READLINE=1 rlwrap node'
+# alias node='env NODE_NO_READLINE=1 rlwrap node'
 
 # Java
 # ====
