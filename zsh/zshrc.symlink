@@ -90,7 +90,9 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 # ====
 
 # Set JAVA_HOME to 7, otherwise fallback to 6.
-if /usr/libexec/java_home -v 1.7 &> /dev/null; then
+if /usr/libexec/java_home -v 1.8 &> /dev/null; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+elif /usr/libexec/java_home -v 1.7 &> /dev/null; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 elif /usr/libexec/java_home -v 1.6 &> /dev/null; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
