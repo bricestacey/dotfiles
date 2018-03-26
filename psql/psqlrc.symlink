@@ -1,2 +1,2 @@
 -- Set default schemas
-set search_path to consumer,txcore;
+set search_path to bitcoin,consumer,txcore,pi,support,auth,remit,circle_remit,invest;
