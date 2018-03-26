@@ -1,6 +1,8 @@
 # Terminal
 # ========
 
+ulimit -n 10000
+
 # Colorize the terminal
 export TERM=xterm-256color
 export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -78,9 +80,13 @@ fi
 # Node
 # ====
 
-if [ -s $(brew --prefix nvm)/nvm.sh ]; then
-  source $(brew --prefix nvm)/nvm.sh
-fi
+#if [ -s $(brew --prefix nvm)/nvm.sh ]; then
+#  source $(brew --prefix nvm)/nvm.sh
+#fi
+
+# Activate NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
@@ -119,3 +125,6 @@ alias droid-wm-nexus5-landscape="adb shell wm size 1080x1920 && adb shell wm den
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
+
+# Add ssh stuffs
+ssh-add -K ~/.ssh/id_rsa
