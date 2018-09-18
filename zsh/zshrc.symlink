@@ -106,7 +106,7 @@ fi
 # =======
 
 # Android compilation
-export PATH=$HOME/android-sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 alias droid-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > screen.png"
 alias droid-screencast="adb shell screenrecord /sdcard/demo.mp4"
 alias droid-screencast-pull="adb pull /sdcard/demo.mp4"
