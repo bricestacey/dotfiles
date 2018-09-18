@@ -20,3 +20,5 @@
 
 [pull]
 	ff = true
+[credential]
+	helper = osxkeychain
