@@ -13,6 +13,13 @@ export GREP_OPTIONS="--color=auto"
 autoload -U colors
 colors
 
+# Homebrew autocomplete
+# This must be done before compinit is called.
+# https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 # Initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
