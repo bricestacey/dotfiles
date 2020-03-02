@@ -1,34 +1,47 @@
 set nocompatible  " Use Vim settings, rather then Vi settings
 filetype off      " required for Vundle
 
-" vundle setup
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'juvenn/mustache.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ingydotnet/yaml-vim'
+Plug 'scrooloose/syntastic'
+Plug 'pangloss/vim-javascript'
+Plug 'chriskempson/base16-vim'
+Plug 'groenewege/vim-less'
+Plug 'elzr/vim-json'
+Plug 'Valloric/MatchTagAlways'
 
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'juvenn/mustache.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'ingydotnet/yaml-vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'pangloss/vim-javascript'
-Bundle 'chriskempson/base16-vim'
-Bundle 'groenewege/vim-less'
-Bundle 'elzr/vim-json'
-Bundle 'Valloric/MatchTagAlways'
+" Language: Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'heavenshell/vim-jsdoc'
 
-" end Vundle setup
+" Language: Generic
+let g:polyglot_disabled = ['crystal', 'javascript', 'jsx', 'vue']
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
+" end Plug setup
 
 filetype plugin indent on
 
@@ -75,9 +88,11 @@ nnoremap <Down> :echoe "Use j"<CR>
 function! CorrectTestRunner()
   if match(expand('%'), '\.feature$') != -1
     return "cucumber --drb"
+  elseif match(expand('%'), '_test\.rb$') != -1
+    return "bundle exec rails test"
   elseif match(expand('%'), '_spec\.rb$') != -1
-     return "bundle exec rspec --drb --colour"
-   endif
+    return "bundle exec rspec --drb --colour"
+  endif
 endfunction
 
 function! RunTest()
