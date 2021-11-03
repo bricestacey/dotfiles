@@ -129,7 +129,7 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
 # Add ssh stuffs
-ssh-add -K ~/.ssh/id_rsa
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
 
 # asdf
 # ====
